@@ -3,15 +3,20 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f5f7fa;
   color: #333;
+  min-height: 100vh;
 }
 
 header {
   background: #199450;
   color: white;
-  padding: 20px;
   text-align: center;
-  font-size: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin: auto;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .cards {
@@ -43,4 +48,13 @@ header {
   margin: 0;
   font-size: 14px;
   color: #555;
+}
+
+footer {
+  text-align: center;
+  background-color: #157a42;
+  padding: 20px 0;
+  width: auto;
+  font-family: Arial, sans-serif;
+  color: #000000;
 }
