@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 const path = require("path");
+const { redirectIfLoggedIn } = require("../middleware/autorization");
 
 router.post("/", (req, res) => {
   const { user_name, password } = req.body;
@@ -32,12 +33,18 @@ router.post("/", (req, res) => {
         });
       }
 
+      req.session.user = {
+        id: rows[0].id,
+        user_name: rows[0].user_name,
+      };
+      console.log("Session after login:", req.session);
+
       res.json({ success: true });
     },
   );
 });
 
-router.get("/", (req, res) => {
+router.get("/", redirectIfLoggedIn, (req, res) => {
   res.sendFile(path.join(__dirname, "../FE/login.html"));
 });
 

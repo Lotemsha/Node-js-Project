@@ -1,19 +1,34 @@
 // Ameed Halabi , Lotem Sharir
 
 const express = require("express");
-// const cors = require("cors");
+const session = require("express-session");
 const app = express();
 
 const loginRoutes = require("./routes/login");
 const homeRoutes = require("./routes/home");
+const aboutRoutes = require("./routes/about");
+const logoutRoutes = require("./routes/logout");
+const userRoutes = require("./routes/user");
 
 app.use(express.json());
-// app.use(cors());
 app.use(express.static("FE"));
+
+// Session
+app.use(
+  session({
+    secret: "your_secret_key",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  }),
+);
 
 // Use routes with app.use
 app.use("/login", loginRoutes);
 app.use("/home", homeRoutes);
+app.use("/about", aboutRoutes);
+app.use("/logout", logoutRoutes);
+app.use("/home", userRoutes);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/FE/login.html");
