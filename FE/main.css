@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+main {
+  flex: 1;
+}
+
+/*  מבנה עמוד כללי */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #eef3ee;
+  color: #2e2e2e;
+}
+
+/* HEADER*/
+header {
+  background: #199450;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* צד ימין: welcome + logout */
+header .right-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+}
+
+/* כותרות במרכז */
+.title-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.title-box h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.title-box h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+/* ניווט בצד שמאל */
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+header nav a:hover {
+  opacity: 0.8;
+}
+
+/* כפתור Logout */
+#logoutBtn {
+  background: white;
+  color: #199450;
+  border: 2px solid #199450;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+#logoutBtn:hover {
+  background: #199450;
+  color: white;
+}
+
+img {
+  width: 100px;
+}
+/* HOME – כרטיסים */
+#trails-container {
+  flex: 1;
+  padding: 30px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.25s;
+  border: 1px solid #e2e2e2;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #0f6d3a;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.editBtn,
+.deleteBtn {
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editBtn {
+  color: #199450;
+  text-decoration: none;
+}
+
+.deleteBtn {
+  color: #d9534f;
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  text-decoration: underline;
+}
+
+/* EDIT PAGE */
+.edit-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #199450;
+  font-size: 28px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+/* טופס בשני טורים */
+#editForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#editForm label {
+  font-weight: bold;
+  color: #0f6d3a;
+}
+
+#editForm input,
+#editForm textarea,
+#editForm select {
+  padding: 10px 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #f9f9f9;
+  transition: 0.2s;
+}
+
+#editForm input:focus,
+#editForm textarea:focus,
+#editForm select:focus {
+  border-color: #199450;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(25, 148, 80, 0.3);
+}
+
+#editForm textarea {
+  grid-column: span 2;
+}
+
+/* כפתור שמירה */
+.save-btn {
+  grid-column: span 2;
+  background: #199450;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.save-btn:hover {
+  background: #157a42;
+}
+
+/* About us page */
+.aboutMain {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e2e2;
+  animation: fadeIn 0.4s ease;
+}
+
+.aboutUs {
+  text-align: right;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #2e2e2e;
+}
+
+.aboutUs p {
+  font-size: 17px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.aboutUs h2 {
+  color: #0f6d3a;
+  font-size: 22px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.aboutUs h1 {
+  color: #199450;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bodyAbout {
+  background-image: url("./assets/shutterstock_1439286956_x5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* footer */
+footer {
+  background: #146c38;
+  color: white;
+  text-align: center;
+  padding: 18px 0;
+  margin-top: auto;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}

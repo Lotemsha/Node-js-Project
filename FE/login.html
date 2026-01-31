@@ -7,23 +7,26 @@
   </head>
 
   <body>
-    <div class="header">
-      <h1>טיולים בטבע</h1>
-    </div>
-    <div class="login">
-      <p>User name:</p>
-      <input type="text" id="userName" />
+    <main>
+      <div class="header">
+        <h1>טיולים בטבע</h1>
+      </div>
+      <div class="login">
+        <p>User name:</p>
+        <input type="text" id="userName" />
 
-      <p>Password:</p>
-      <input type="password" id="password" />
+        <p>Password:</p>
+        <input type="password" id="password" />
 
-      <button onclick="handleLogin()">Log in</button>
+        <button id="logInBtn">Log in</button>
 
-      <p id="error" class="error"></p>
+        <p id="error" class="error"></p>
 
-      <p>Not yet a member?</p>
-      <button onclick="window.location.href = '/signup.html'">Sign up</button>
-    </div>
+        <p>Not yet a member?</p>
+        <button id="singUpBtn">Sign up</button>
+      </div>
+    </main>
+
     <footer>
       <span>Ameed Halabi | Lotem Sharir</span>
     </footer>

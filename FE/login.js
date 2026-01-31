@@ -1,3 +1,13 @@
+const signInBtn = document.getElementById("singUpBtn");
+
+logInBtn.addEventListener("click", () => {
+  handleLogin();
+});
+
+singUpBtn.addEventListener("click", () => {
+  window.location.href = "/signIn.html";
+});
+
 async function handleLogin() {
   const userName = document.getElementById("userName").value;
   const password = document.getElementById("password").value;

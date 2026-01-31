@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit trail</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="right-side">
+        <button id="logoutBtn">Logout</button>
+        <h3 id="welcome"></h3>
+      </div>
+      <div class="title-box">
+        <h1>טיולים בטבע</h1>
+        <h2>עריכת מסלול</h2>
+      </div>
+      <nav>
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+      </nav>
+      <img src="./assets/leaf-icon-vector-png.png" alt="logo" />
+    </header>
+    <main class="edit-container">
+      <h1>עריכת מסלול</h1>
+
+      <form id="editForm">
+        <label for="trailName">Name</label>
+        <input type="text" id="trailName" />
+
+        <label for="trailLocation">Location</label>
+        <input type="text" id="trailLocation" />
+
+        <label for="trailRating">Rating</label>
+        <input type="number" id="trailRating" min="1" max="5" />
+
+        <label for="trailLength">Length (KM)</label>
+        <input type="number" id="trailLength" step="0.1" />
+
+        <button id="addTrail" class="save-btn">שמור שינויים</button>
+        <p id="error"></p>
+      </form>
+    </main>
+    <footer>
+      <span>Ameed Halabi | Lotem Sharir</span>
+    </footer>
+    
+    <script src="header.js"></script>
+    <script src="add.js"></script>
+  </body>
+</html>

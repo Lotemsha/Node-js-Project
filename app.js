@@ -9,8 +9,9 @@ const homeRoutes = require("./routes/home");
 const aboutRoutes = require("./routes/about");
 const logoutRoutes = require("./routes/logout");
 const userRoutes = require("./routes/user");
-const editRoutes = require("./routes/edit");
+const addRoutes = require("./routes/add");
 const trailsRoutes = require("./routes/trails");
+const signInRoutes = require("./routes/signin");
 
 app.use(express.json());
 app.use(express.static("FE"));
@@ -30,9 +31,10 @@ app.use("/login", loginRoutes);
 app.use("/home", homeRoutes);
 app.use("/about", aboutRoutes);
 app.use("/logout", logoutRoutes);
-app.use("/home", userRoutes);
-app.use("/edit", editRoutes);
+app.use("/user", userRoutes);
+app.use("/add", addRoutes);
 app.use("/trails", trailsRoutes);
+app.use("/signin", signInRoutes);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/FE/login.html");
