@@ -37,7 +37,6 @@ router.post("/", (req, res) => {
         id: rows[0].id,
         user_name: rows[0].user_name,
       };
-      console.log("Session after login:", req.session);
 
       res.json({ success: true });
     },

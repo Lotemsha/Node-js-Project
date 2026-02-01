@@ -159,9 +159,21 @@ img {
   text-decoration: underline;
 }
 
-/* EDIT PAGE */
+/* ADD PAGE */
+.bodyAdd {
+  background-image: url("./assets/S1g1CVGRJa_0_0_3000_2250_0_x-large.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .edit-container {
   max-width: 900px;
+  max-height: fit-content;
   margin: 40px auto;
   background: white;
   padding: 20px 30px;
