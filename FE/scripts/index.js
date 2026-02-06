@@ -18,7 +18,7 @@ async function loadTrails() {
         <p>אורך הממסלול בק"מ: ${trail.length_km}</p>
         <p>דירוג: ${trail.rating}</p>
         <div class="card-actions">
-        <a href="/home?id=${trail.id}" class="editBtn">Edit</a>
+        <a href="/add/${trail.id}" class="editBtn">Edit</a>
         <button class="deleteBtn" data-id="${trail.id}">Delete</button>
         </div>
       `;

@@ -32,15 +32,19 @@ async function addTrailToDB() {
 
   if (!validateTrail({ NAME, LOCATION, RATING, LENGTH_KM })) return;
 
+  const isEdit = id && id !== "add";
+  const url = isEdit ? `/add/${id}` : "/add";
+  const method = isEdit ? "PUT" : "POST";
+
   try {
-    const res = await fetch("/add", {
-      method: "POST",
+    const res = await fetch(url, {
+      method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ NAME, LOCATION, RATING, LENGTH_KM }),
     });
 
     if (res.ok) {
-      alert("Added successfully!");
+      alert(isEdit ? "Updated successfully!" : "Added successfully!");
       window.location.href = "/home.html";
       return;
     }
@@ -56,8 +60,39 @@ async function addTrailToDB() {
         error.textContent = "Server error";
     }
   } catch {
-    alert("Server error. Please try again later.");
+    error.textContent = "Server error. Please try again later.";
   }
+}
+
+async function loadTrail(id) {
+  try {
+    const res = await fetch(`/trails/${id}`);
+    const data = await res.json();
+
+    if (!res.ok) {
+      error.textContent = "Failed to load trail";
+      return;
+    }
+
+    // מילוי השדות
+    document.getElementById("trailName").value = data.name;
+    document.getElementById("trailLocation").value = data.location;
+    document.getElementById("trailRating").value = data.rating;
+    document.getElementById("trailLength").value = data.length_km;
+
+    // שינוי טקסט של הכפתור
+    addTrail.textContent = "Update Trail";
+  } catch (err) {
+    console.error(err);
+    error.textContent = "Server error";
+  }
+}
+
+const parts = window.location.pathname.split("/");
+const id = parts[parts.length - 1];
+
+if (id && id !== "add") {
+  loadTrail(id);
 }
 
 addTrail.addEventListener("click", (e) => {
