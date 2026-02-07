@@ -1,3 +1,4 @@
+// אימות של המסלול שאין שדות ריקים
 function validateTrail({ NAME, LOCATION, RATING, LENGTH_KM }) {
   if (!NAME.trim() || !LOCATION.trim() || !RATING || !LENGTH_KM) {
     error.textContent = "All fields are required";
@@ -17,6 +18,7 @@ function validateTrail({ NAME, LOCATION, RATING, LENGTH_KM }) {
   return true;
 }
 
+// הוספה של מסלול חדש למאגר
 async function addTrailToDB() {
   const trailName = document.getElementById("trailName");
   const location = document.getElementById("trailLocation");
@@ -64,6 +66,7 @@ async function addTrailToDB() {
   }
 }
 
+// 
 async function loadTrail(id) {
   try {
     const res = await fetch(`/trails/${id}`);

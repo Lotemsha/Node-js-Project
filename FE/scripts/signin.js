@@ -4,8 +4,39 @@ const password = document.getElementById("password");
 const email = document.getElementById("email");
 const error = document.getElementById("error");
 
+// בדיקת שם: אותיות בלבד ולפחות 2 תווים
+function isValidName(name) {
+  const nameRegex = /^[A-Za-z0-9]{2,}$/;
+  return nameRegex.test(String(name).toLowerCase());
+}
+
+// בדיקת סיסמה: אלפאנומרית, 3–8 תווים, לפחות ספרה אחת ולפחות אות אחת
+function isValidPassword(password) {
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]{3,8}$/;
+  return passwordRegex.test(password);
+}
+
+function validateEmail(email) {
+  // Method to validate email (פונקצייה מיובאת)
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+// שליחת המשתמש החדש
 async function sendSignInData() {
   error.textContent = "";
+
+  if (!isValidPassword(password.value) || !isValidName(userName.value)) {
+    error.textContent = "Unvalid user name or password";
+    return;
+  }
+
+  if (!validateEmail(email.value)) {
+    error.textContent = "Unvalid email";
+    return;
+  }
+
   try {
     const res = await fetch("/signin", {
       method: "POST",

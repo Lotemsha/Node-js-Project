@@ -4,18 +4,8 @@ const path = require("path");
 const db = require("../db");
 const { requireLogin } = require("../middleware/autorization");
 
-// trails/
-router.get("/", requireLogin, (req, res) => {
-  const sql = "SELECT ID, NAME, LOCATION, RATING, LENGTH_KM FROM trails";
-
-  db.query(sql, (err, results) => {
-    if (err) return res.status(500).json({ error: "Server error" });
-
-    res.json(results);
-  });
-});
-
 // traild/id
+// מביא את המידע לעמוד עריכה
 router.get("/:id", requireLogin, (req, res) => {
   const { id } = req.params;
 

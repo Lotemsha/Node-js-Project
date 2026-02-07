@@ -4,6 +4,7 @@ const db = require("../db");
 const path = require("path");
 const { redirectIfLoggedIn } = require("../middleware/autorization");
 
+// חיבור משתמש קיים
 router.post("/", (req, res) => {
   const { user_name, password } = req.body;
 

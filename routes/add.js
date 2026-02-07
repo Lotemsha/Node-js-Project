@@ -4,7 +4,7 @@ const db = require("../db");
 const path = require("path");
 const { requireLogin } = require("../middleware/autorization");
 
-// add
+// /add
 router.get("/", requireLogin, (req, res) => {
   res.sendFile(path.join(__dirname, "../FE/add.html"));
 });
